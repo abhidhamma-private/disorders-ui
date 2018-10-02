@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Drawer = styled.div`
   position: fixed;
   top: 0;
-  width: 16.5vw;
+  width: 16.7vw;
   height: 100%;
   right: 0;
   background-color: #00a8ff;

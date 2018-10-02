@@ -8,6 +8,7 @@
     "@types/react-sidebar": "^3.0.0",
     "apollo-boost": "^0.1.15",
     "graphql": "^0.13.2",
+    "postcss-preset-env": "^6.0.8",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-apollo": "^2.1.11",
