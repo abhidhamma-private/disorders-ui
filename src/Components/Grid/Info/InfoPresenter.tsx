@@ -7,5 +7,5 @@ const Info = styled.div`
   grid-area: info;
 `;
 
-const InfoPresenter: React.SFC<any> = () => <Info />;
+const InfoPresenter: React.SFC<any> = () => <Info>좋은글</Info>;
 export default InfoPresenter;

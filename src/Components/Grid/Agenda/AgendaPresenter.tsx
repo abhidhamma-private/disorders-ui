@@ -7,5 +7,5 @@ const Agenda = styled.div`
   grid-area: agenda;
 `;
 
-const AgendaPresenter: React.SFC<any> = () => <Agenda />;
+const AgendaPresenter: React.SFC<any> = () => <Agenda>달성도</Agenda>;
 export default AgendaPresenter;

@@ -1,17 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import AddPlace from '../../Routes/AddPlace';
-import EditAccount from '../../Routes/EditAccount';
-import FindAddress from '../../Routes/FindAddress';
-import Login from '../../Routes/Login';
-import PhoneLogin from '../../Routes/PhoneLogin';
-import Places from '../../Routes/Places';
-import Ride from '../../Routes/Ride';
-import Settings from '../../Routes/Settings';
-import SocialLogin from '../../Routes/SocialLogin';
-import VerifyPhone from '../../Routes/VerifyPhone';
 import Home from '../../Routes/Home';
+import AchievingRate from '../../Routes/AchievingRate';
 
 interface IProps {
   isLoggedIn: boolean;
@@ -26,22 +17,13 @@ const AppPresenter: React.SFC<IProps> = ({ isLoggedIn }) => (
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
     <Route path={'/'} exact={true} component={Home} />
-    <Route path={'/phone-login'} component={PhoneLogin} />
-    <Route path={'/verify-phone/:number'} component={VerifyPhone} />
-    <Route path={'/social-login'} component={SocialLogin} />
+    <Route path={'/achieving-rate'} component={AchievingRate} />
     <Redirect from={'*'} to={'/'} />
   </Switch>
 );
 
 const LoggedInRoutes: React.SFC = () => (
   <Switch>
-    <Route path={'/'} exact={true} component={Login} />
-    <Route path={'/ride'} exact={true} component={Ride} />
-    <Route path={'/edit-account'} exact={true} component={EditAccount} />
-    <Route path={'/settings'} exact={true} component={Settings} />
-    <Route path={'/places'} exact={true} component={Places} />
-    <Route path={'/add-place'} exact={true} component={AddPlace} />
-    <Route path={'/find-address'} exact={true} component={FindAddress} />
     <Redirect from={'*'} to={'/'} />
   </Switch>
 );
