@@ -16,8 +16,8 @@ const AppPresenter: React.SFC<IProps> = ({ isLoggedIn }) => (
 
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
-    <Route path={'/'} exact={true} component={Home} />
-    <Route path={'/achieving-rate'} component={AchievingRate} />
+    <Route path={'/'} exact={true} component={AchievingRate} />
+    <Route path={'/achieving-rate'} component={Home} />
     <Redirect from={'*'} to={'/'} />
   </Switch>
 );

@@ -8,6 +8,7 @@ const Header = styled.header`
   width: 100%;
   border-bottom: #eeeeee;
   border-width: 0 0 1px;
+  z-index: 2;
 `;
 
 const Row = styled.div`
@@ -74,7 +75,7 @@ const HeaderPresenter: React.SFC<IProps> = ({ isMenuOpen, toggleMenu }) => (
         <Brand>:):</Brand>
       </Column>
       <Column>
-        <Login>Sign up / Sign in</Login>
+        <Login>계획쓰기</Login>
         <Menu onClick={toggleMenu}>|||</Menu>
       </Column>
     </Row>

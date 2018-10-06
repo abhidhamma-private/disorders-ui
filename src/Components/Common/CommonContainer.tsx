@@ -1,19 +1,19 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
-import HeaderPresenter from './HeaderPresenter';
+import CommonPresenter from './CommonPresenter';
 
 interface IState {
   isMenuOpen: boolean;
 }
 interface IProps extends RouteComponentProps<any> {}
-class HeaderContainer extends React.Component<IProps, IState> {
+class CommonContainer extends React.Component<IProps, IState> {
   public state = {
     isMenuOpen: false,
   };
   public render() {
     const { isMenuOpen } = this.state;
     return (
-      <HeaderPresenter isMenuOpen={isMenuOpen} toggleMenu={this.toggleMenu} />
+      <CommonPresenter isMenuOpen={isMenuOpen} toggleMenu={this.toggleMenu} />
     );
   }
   public toggleMenu = () => {
@@ -24,4 +24,4 @@ class HeaderContainer extends React.Component<IProps, IState> {
     });
   };
 }
-export default HeaderContainer;
+export default CommonContainer;

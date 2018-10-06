@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 const Info = styled.div`
   font-size: 50px;
-  background-color: #1abc9c;
+  text-align: center;
+  background: rgb(241, 243, 245);
   grid-area: info;
 `;
 
-const InfoPresenter: React.SFC<any> = () => <Info>좋은글</Info>;
+const InfoPresenter: React.SFC<any> = () => <Info>Info</Info>;
 export default InfoPresenter;

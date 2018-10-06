@@ -1,2 +1,2 @@
-import AgendaPresenter from './AgendaPresenter';
-export default AgendaPresenter;
+import Agenda from './AgendaPresenter';
+export default Agenda;

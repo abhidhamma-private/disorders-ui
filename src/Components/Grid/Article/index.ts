@@ -1,2 +1,2 @@
-import ArticlePresenter from './ArticlePresenter';
-export default ArticlePresenter;
+import Article from './ArticlePresenter';
+export default Article;

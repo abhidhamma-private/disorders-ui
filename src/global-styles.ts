@@ -1,15 +1,18 @@
 import reset from 'styled-reset';
 import { injectGlobal } from './typed-components';
-
 // tslint:disable-next-line
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
-  
   ${reset};
-  * {
+  * {  
+  -ms-overflow-style: none; 
+  &::-webkit-scrollbar { 
+    display: none !important; 
+  }
       box-sizing: border-box;
   }
   body{
+      
     background-image: url(http://s3.amazonaws.com/lyah/bg.png);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

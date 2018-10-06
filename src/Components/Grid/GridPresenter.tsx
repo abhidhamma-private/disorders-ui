@@ -9,7 +9,8 @@ const Grid = styled.main`
   grid-template-areas: '. agenda article info .';
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   padding-top: 50px;
-  grid-template-rows: 1000px;
+  grid-gap: 5px;
+  grid-template-rows: auto;
   width: 100vw;
 
   @media (max-width: 850px) {
@@ -19,11 +20,11 @@ const Grid = styled.main`
       'agenda'
       'info';
     grid-template-columns: 1fr;
-    grid-template-rows: 500px 500px 500px;
+    grid-template-rows: auto;
     padding-top: 50px;
-
+    grid-gap: 5px;
     & > {
-      display: flex;
+      display: grid;
       justify-content: space-around;
     }
   }

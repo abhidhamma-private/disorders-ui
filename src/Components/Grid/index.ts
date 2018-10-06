@@ -1,2 +1,2 @@
-import GridPresenter from './GridPresenter';
-export default GridPresenter;
+import Grid from './GridPresenter';
+export default Grid;

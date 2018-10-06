@@ -1,2 +1,2 @@
-import InfoPresenter from './InfoPresenter';
-export default InfoPresenter;
+import Info from './InfoPresenter';
+export default Info;
