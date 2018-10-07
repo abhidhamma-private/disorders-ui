@@ -76,7 +76,7 @@ class HeaderPresenter extends React.Component<IProps, IState> {
       return { changeHeaderColor: !state.changeHeaderColor };
     });
   };
-  render() {
+  public render() {
     return (
       <Header>
         <Row>
