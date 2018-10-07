@@ -5,14 +5,12 @@ const Article = styled.div`
   display: grid;
   justify-content: center;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
-  font-size: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   background: rgb(241, 243, 245);
   text-align: center;
   grid-area: article;
   padding: 10px;
 `;
-
 class ArticlePresenter extends React.Component<any> {
   public render() {
     return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../Button';
 
 const Header = styled.header`
   position: fixed;
@@ -62,23 +63,35 @@ const Menu = styled.span`
   margin-right: 15px;
   text-align: center;
 `;
-
+interface IState {
+  changeHeaderColor: any;
+}
 interface IProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
 }
-
-const HeaderPresenter: React.SFC<IProps> = ({ isMenuOpen, toggleMenu }) => (
-  <Header>
-    <Row>
-      <Column>
-        <Brand>:):</Brand>
-      </Column>
-      <Column>
-        <Login>계획쓰기</Login>
-        <Menu onClick={toggleMenu}>|||</Menu>
-      </Column>
-    </Row>
-  </Header>
-);
+class HeaderPresenter extends React.Component<IProps, IState> {
+  public write = () => {
+    this.setState(state => {
+      return { changeHeaderColor: !state.changeHeaderColor };
+    });
+  };
+  render() {
+    return (
+      <Header>
+        <Row>
+          <Column>
+            <Brand>:):</Brand>
+          </Column>
+          <Column>
+            <Login>
+              <Button value="새 계획표 작성" onClick={this.write} />
+            </Login>
+            <Menu onClick={this.props.toggleMenu}>|||</Menu>
+          </Column>
+        </Row>
+      </Header>
+    );
+  }
+}
 export default HeaderPresenter;

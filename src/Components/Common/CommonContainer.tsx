@@ -1,14 +1,12 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router';
 import CommonPresenter from './CommonPresenter';
 
-interface IState {
-  isMenuOpen: boolean;
-}
-interface IProps extends RouteComponentProps<any> {}
-class CommonContainer extends React.Component<IProps, IState> {
+class CommonContainer extends React.Component<any> {
   public state = {
     isMenuOpen: false,
+  };
+  public toggleMenu = () => {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
   public render() {
     const { isMenuOpen } = this.state;
@@ -16,12 +14,5 @@ class CommonContainer extends React.Component<IProps, IState> {
       <CommonPresenter isMenuOpen={isMenuOpen} toggleMenu={this.toggleMenu} />
     );
   }
-  public toggleMenu = () => {
-    this.setState(state => {
-      return {
-        isMenuOpen: !state.isMenuOpen,
-      };
-    });
-  };
 }
 export default CommonContainer;
