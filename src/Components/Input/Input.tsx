@@ -1,23 +1,25 @@
 import React from 'react';
 import styled from '../../typed-components';
 const Container = styled.input`
+  background-color: transparent;
+  color: white;
   border: none;
-  border-bottom: 2px solid ${props => props.theme.greyColor};
   font-size: 20px;
-  width: 100%;
-  padding-bottom: 10px;
+  width: 200%;
+  height: 100%;
   font-weight: 500;
-  transition: border-bottom 0.1s linear;
+  line-height: 50px;
   &:-webkit-autofill {
     box-shadow: 0 0 0px 1000px white inset !important;
   }
   &:focus {
-    border-bottom-color: #2c3e50;
+    border-bottom: 3px solid white;
     outline: none;
   }
   &::placeholder {
     color: ${props => props.theme.greyColor};
-    font-weight: 300;
+    font-weight: 500;
+    line-height: 40px;
   }
 `;
 
@@ -25,9 +27,9 @@ interface IProps {
   placeholder?: string;
   type?: string;
   required?: boolean;
-  value: any;
+  value?: any;
   name?: string;
-  onChange: any;
+  onChange?: any;
 }
 
 const Input: React.SFC<IProps> = ({

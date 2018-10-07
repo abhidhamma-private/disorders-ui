@@ -1,7 +1,11 @@
 import React from 'react';
 import CommonPresenter from './CommonPresenter';
 
-class CommonContainer extends React.Component<any> {
+interface IProps {
+  headerTheme: boolean;
+}
+
+class CommonContainer extends React.Component<IProps> {
   public state = {
     isMenuOpen: false,
   };
@@ -11,7 +15,11 @@ class CommonContainer extends React.Component<any> {
   public render() {
     const { isMenuOpen } = this.state;
     return (
-      <CommonPresenter isMenuOpen={isMenuOpen} toggleMenu={this.toggleMenu} />
+      <CommonPresenter
+        isMenuOpen={isMenuOpen}
+        toggleMenu={this.toggleMenu}
+        headerTheme={this.props.headerTheme}
+      />
     );
   }
 }

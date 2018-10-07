@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Home from '../../Routes/Home';
+import WritePlan from '../../Routes/writePlan/writePlanPresenter';
 import AchievingRate from '../../Routes/AchievingRate';
-
 interface IProps {
   isLoggedIn: boolean;
 }
@@ -16,8 +16,9 @@ const AppPresenter: React.SFC<IProps> = ({ isLoggedIn }) => (
 
 const LoggedOutRoutes: React.SFC = () => (
   <Switch>
-    <Route path={'/'} exact={true} component={AchievingRate} />
-    <Route path={'/achieving-rate'} component={Home} />
+    <Route path={'/'} exact={true} component={Home} />
+    <Route path={'/achieving-rate'} component={AchievingRate} />
+    <Route path={'/write-plan'} component={WritePlan} />
     <Redirect from={'*'} to={'/'} />
   </Switch>
 );

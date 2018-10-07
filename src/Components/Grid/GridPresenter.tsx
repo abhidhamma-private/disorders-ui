@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import InfoPresenter from './Info';
-import AgendaPresenter from './Agenda';
-import ArticlePresenter from './Article';
 
 const Grid = styled.main`
   display: grid;
@@ -30,11 +27,5 @@ const Grid = styled.main`
   }
 `;
 
-const GridPresenter: React.SFC<any> = () => (
-  <Grid>
-    <ArticlePresenter />
-    <AgendaPresenter />
-    <InfoPresenter />
-  </Grid>
-);
+const GridPresenter: React.SFC<any> = () => <Grid />;
 export default GridPresenter;

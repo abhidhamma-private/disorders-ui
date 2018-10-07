@@ -1,37 +1,49 @@
 import React from 'react';
-import Sidebar from 'react-sidebar';
-import Drawer from '../../Components/Drawer';
-import Header from '../../Components/Header';
-import Grid from '../../Components/Grid';
+import CommonContainer from '../../Components/Common';
 import Article from '../../Components/Grid/Article';
 import Agenda from '../../Components/Grid/Agenda';
 import Info from '../../Components/Grid/Info';
+import styled from 'styled-components';
 
-interface IState {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
+const Grid = styled.main`
+  display: grid;
+  grid-template-areas: '. agenda article info .';
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  padding-top: 50px;
+  grid-gap: 5px;
+  grid-template-rows: auto;
+  width: 100vw;
+
+  @media (max-width: 850px) {
+    display: grid;
+    grid-template-areas:
+      'article'
+      'agenda'
+      'info';
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-top: 50px;
+    grid-gap: 5px;
+    & > {
+      display: grid;
+      justify-content: space-around;
+    }
+  }
+`;
+
+class HomePresenter extends React.Component<any> {
+  public render() {
+    const headerTheme = true;
+    return (
+      <>
+        <CommonContainer headerTheme={headerTheme} />
+        <Grid>
+          <Article />
+          <Agenda />
+          <Info />
+        </Grid>
+      </>
+    );
+  }
 }
-
-const HomePresenter: React.SFC<IState> = ({ isMenuOpen, toggleMenu }) => (
-  <>
-    <Sidebar
-      sidebar={<Drawer />}
-      open={isMenuOpen}
-      onSetOpen={toggleMenu}
-      pullRight={true}
-      styles={{
-        sidebar: {
-          width: '16.7vw',
-          zIndex: '10',
-        },
-      }}>
-      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      <Grid>
-        <Article />
-        <Agenda />
-        <Info />
-      </Grid>
-    </Sidebar>
-  </>
-);
 export default HomePresenter;

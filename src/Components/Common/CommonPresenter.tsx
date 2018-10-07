@@ -3,12 +3,11 @@ import Sidebar from 'react-sidebar';
 import Drawer from '../Drawer';
 import Header from '../Header';
 
-interface IState {
-  isMenuOpen: boolean;
-  toggleMenu: () => void;
-}
-
-const CommonPresenter: React.SFC<IState> = ({ isMenuOpen, toggleMenu }) => (
+const CommonPresenter: React.SFC<any> = ({
+  isMenuOpen,
+  toggleMenu,
+  headerTheme,
+}) => (
   <>
     <Sidebar
       sidebar={<Drawer />}
@@ -21,7 +20,11 @@ const CommonPresenter: React.SFC<IState> = ({ isMenuOpen, toggleMenu }) => (
           zIndex: '10',
         },
       }}>
-      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      <Header
+        isMenuOpen={isMenuOpen}
+        toggleMenu={toggleMenu}
+        headerTheme={headerTheme}
+      />
     </Sidebar>
   </>
 );

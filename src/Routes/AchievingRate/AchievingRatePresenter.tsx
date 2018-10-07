@@ -9,7 +9,7 @@ class AchievingRatePresenter extends React.Component<any> {
   public render() {
     return (
       <>
-        <CommonContainer />
+        <CommonContainer headerTheme={true} />
         <Grid>
           <Article />
           <Agenda />

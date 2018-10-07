@@ -1,2 +1,2 @@
-import HomeContainer from './HomeContainer';
-export default HomeContainer;
+import HomePresenter from './HomePresenter';
+export default HomePresenter;
