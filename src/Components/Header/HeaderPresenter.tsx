@@ -86,7 +86,7 @@ const HeaderPresenter: React.SFC<IProps> = ({ toggleMenu, headerTheme }) => {
           <Column>
             <Login>
               <Link to="/write-plan">
-                <Button value="새 계획표 작성" onClick="" />
+                <Button value="새 계획표 작성" />
               </Link>
             </Login>
             <Menu onClick={toggleMenu}>|||</Menu>
@@ -105,8 +105,8 @@ const HeaderPresenter: React.SFC<IProps> = ({ toggleMenu, headerTheme }) => {
         </Column>
         <Column>
           <Login>
-            <Button value="업로드" onClick="" />
-            <Button value="작성하기" onClick="" />
+            <Button value="한줄평" />
+            <Button value="작성하기" />
           </Login>
         </Column>
       </Row>
