@@ -18,7 +18,7 @@ const Container = styled.div`
   background: white;
 `;
 
-class WritePlanPresenter extends React.Component<{}, any> {
+class CheckPlanPresenter extends React.Component<{}, any> {
   public state = {
     events: [
       {
@@ -56,12 +56,12 @@ class WritePlanPresenter extends React.Component<{}, any> {
             selectable={true}
             localizer={localizer}
             defaultDate={new Date()}
-            defaultView="week"
+            defaultView="day"
             toolbar={false}
             events={this.state.events}
             onEventDrop={this.onEventDrop}
             onEventResize={this.onEventResize}
-            resizable={true}
+            resizable="true"
             style={{ height: '100vh' }}
           />
         </Container>
@@ -69,4 +69,4 @@ class WritePlanPresenter extends React.Component<{}, any> {
     );
   }
 }
-export default WritePlanPresenter;
+export default CheckPlanPresenter;

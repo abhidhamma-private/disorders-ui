@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const Drawer = styled.div`
   display: grid;
-  grid-template-rows: 1fr 3fr;
+  grid-template-rows: 250px 1fr;
+  align-items: flex-start;
   position: fixed;
   top: 0;
-  width: 16.5vw;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   right: 0;
   overflow: hidden;
 
@@ -27,23 +28,20 @@ const Drawer = styled.div`
 
 const Row = styled.div`
   display: grid;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
 `;
 
 const Column = styled.div`
-  background-color: rgba(255, 255, 255, 0.6);
   width: 100%;
   height: 100%;
   display: grid;
 `;
 
-const Img = styled.div``;
-
 const DrawerPresenter = () => (
   <Drawer>
     <Row>
-      <Column>
-        <Img />
-      </Column>
+      <Column />
     </Row>
     <Row>
       <Column />

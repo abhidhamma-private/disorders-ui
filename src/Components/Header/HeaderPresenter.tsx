@@ -54,9 +54,12 @@ const Brand = styled.div`
 const Login = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-around;
+  justify-content: space-between;
   align-self: center;
   font-size: 15px;
+  &Button {
+    margin: 3px;
+  }
 `;
 const Menu = styled.span`
   align-self: center;
@@ -105,7 +108,7 @@ const HeaderPresenter: React.SFC<IProps> = ({ toggleMenu, headerTheme }) => {
         </Column>
         <Column>
           <Login>
-            <Button value="한줄평" />
+            <Button value="이번주 드는 생각" />
             <Button value="작성하기" />
           </Login>
         </Column>

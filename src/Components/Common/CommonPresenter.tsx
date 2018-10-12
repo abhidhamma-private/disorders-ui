@@ -16,7 +16,7 @@ const CommonPresenter: React.SFC<any> = ({
       pullRight={true}
       styles={{
         sidebar: {
-          width: '16.7vw',
+          width: '250px',
           zIndex: '10',
         },
       }}>

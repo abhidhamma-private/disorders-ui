@@ -5,6 +5,7 @@ const Container = styled.input`
   height: 2.25rem;
   display: grid;
   align-self: center;
+  flex-wrap: wrap;
   justify-self: center;
   background-color: white;
   color: black;
@@ -16,6 +17,7 @@ const Container = styled.input`
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.1725);
   border-radius: 2px;
+  margin-left: 3px;
   &:active,
   &:focus {
     outline: none;
