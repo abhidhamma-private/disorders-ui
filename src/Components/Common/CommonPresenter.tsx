@@ -7,9 +7,11 @@ const CommonPresenter: React.SFC<any> = ({
   isMenuOpen,
   toggleMenu,
   headerTheme,
+  addPlanVeriable,
 }) => (
   <>
     <Sidebar
+      transitions={false}
       sidebar={<Drawer />}
       open={isMenuOpen}
       onSetOpen={toggleMenu}
@@ -17,10 +19,10 @@ const CommonPresenter: React.SFC<any> = ({
       styles={{
         sidebar: {
           width: '250px',
-          zIndex: '10',
         },
       }}>
       <Header
+        addPlanVeriable={addPlanVeriable}
         isMenuOpen={isMenuOpen}
         toggleMenu={toggleMenu}
         headerTheme={headerTheme}

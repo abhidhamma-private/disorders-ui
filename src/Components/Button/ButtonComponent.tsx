@@ -30,24 +30,29 @@ const Container = styled.input`
 
 interface IProps {
   value?: string;
+  onSubmit?: any;
   onClick?: any;
   disabled?: boolean;
   className?: string;
+  type?: string;
 }
 
-const Button: React.SFC<IProps> = ({
+const ButtonComponent: React.SFC<IProps> = ({
   value,
+  onSubmit,
   onClick,
   disabled = false,
   className,
+  type = 'submit',
 }) => (
   <Container
     value={value}
+    onSubmit={onSubmit}
     onClick={onClick}
     disabled={disabled}
     className={className}
-    type={'submit'}
+    type={type}
   />
 );
 
-export default Button;
+export default ButtonComponent;

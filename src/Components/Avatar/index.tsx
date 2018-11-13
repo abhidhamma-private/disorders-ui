@@ -1,2 +1,2 @@
-import Avatar from './AvatarPresenter';
-export default Avatar;
+import AvatarComponent from './AvatarComponent';
+export default AvatarComponent;

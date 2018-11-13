@@ -33,7 +33,7 @@ interface IProps {
   className?: string;
 }
 
-const Form: React.SFC<IProps> = ({
+const FormComponent: React.SFC<IProps> = ({
   value,
   onClick,
   disabled = false,
@@ -48,4 +48,4 @@ const Form: React.SFC<IProps> = ({
   />
 );
 
-export default Form;
+export default FormComponent;

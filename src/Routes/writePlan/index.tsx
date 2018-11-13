@@ -1,2 +1,2 @@
-import WritePlanPresenter from './writePlanPresenter';
-export default WritePlanPresenter;
+import WritePlanRoute from './writePlanPresenter';
+export default WritePlanRoute;

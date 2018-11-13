@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Avatar from '../Avatar';
-
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 const Card = styled.div`
   display: grid;
   grid-template-rows: 11fr 9fr;
@@ -92,37 +93,42 @@ const Content = styled.div`
   text-overflow: ellipsis;
 `;
 
-const CardPresenter = ({ imgURL }) => (
+const CardComponent = ({
+  thumbnail,
+  avatar,
+  writer,
+  title,
+  content,
+  createdAt,
+  href,
+  planId,
+  key,
+}) => (
   <>
     <Card>
       <ThumbnailWraper>
-        <Thumbnail src={imgURL} />
+        <Link to={`${href}/${planId}`}>
+          <Thumbnail src={thumbnail} />
+        </Link>
       </ThumbnailWraper>
 
       <Contents>
-        <Avatar />
+        <Avatar style={{ top: '-37px', right: '20px' }} avatar={avatar} />
         <CoverLetter>
-          <UserName>한지훈</UserName>
-          <Title>첫계획표에요 우하하</Title>
+          <UserName>{writer}</UserName>
+          <Link to={`${href}/${planId}`}>
+            <Title>{title}</Title>
+          </Link>
           <Info>
-            2018년 10월 7일 월요일
+            {moment(createdAt).format('YYYY년 MM월 DD일')}
             <Dot />
             5개의 응원
           </Info>
         </CoverLetter>
-        <Content>
-          작년 겨울부터 오픈소스에 관심이 생겨 이곳저곳에 이슈도 올리고 풀
-          리퀘스트도 보내고 있다. 오픈소스 기여의 가장 큰 장점은 남의 코드를
-          많이 읽을 수 있다는 점과 기술 트렌드를 계속 확인할 수 있다는 점이다.
-          그리고 영작 실력도 미세하게 (...) 향상된 것 같다. 작년 겨울부터
-          오픈소스에 관심이 생겨 이곳저곳에 이슈도 올리고 풀 리퀘스트도 보내고
-          있다. 오픈소스 기여의 가장 큰 장점은 남의 코드를 많이 읽을 수 있다는
-          점과 기술 트렌드를 계속 확인할 수 있다는 점이다. 그리고 영작 실력도
-          미세하게 (...) 향상된 것 같다.
-        </Content>
+        <Content>{content}</Content>
       </Contents>
     </Card>
   </>
 );
 
-export default CardPresenter;
+export default CardComponent;

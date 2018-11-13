@@ -4,6 +4,10 @@ import Button from '../Button';
 import BackArrow from '../BackArrow';
 import Input from '../Input';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Mutation } from 'react-apollo';
+import { ADD_PLAN } from 'src/Routes/writePlan/writePlanQueries';
+// import { toast } from 'react-toastify';
 
 const Header = styled.header`
   position: fixed;
@@ -44,11 +48,10 @@ const Column = styled.div`
 `;
 
 const Brand = styled.div`
-  align-self: center;
   font-weight: 900;
   font-size: 30px;
-  margin-bottom: 7px;
   margin-left: 10px;
+  margin-top: 10px;
 `;
 
 const Login = styled.div`
@@ -72,48 +75,166 @@ const Menu = styled.span`
   text-align: center;
 `;
 
+const Error = styled.div`
+  width: 100vw;
+  font-weight: 900;
+  font-size: 25px;
+  background: orange;
+`;
+
+// const VisitorOrUserToast = styled.div`
+//   display: grid;
+//   grid-gap: 5px;
+//   grid-template-columns: 50px 50px;
+//   grid-template-rows: 50px;
+//   justify-content: space-around;
+// `;
 interface IProps {
   isMenuOpen: boolean;
   toggleMenu: () => void;
-  headerTheme: boolean;
+  headerTheme: string;
+  addPlanVeriable?: any;
+  title: any;
+  writer: any;
 }
 
-const HeaderPresenter: React.SFC<IProps> = ({ toggleMenu, headerTheme }) => {
-  if (headerTheme) {
-    return (
-      <Header>
-        <Row>
-          <Column>
-            <Brand>:):</Brand>
-          </Column>
-          <Column>
-            <Login>
-              <Link to="/write-plan">
-                <Button value="새 계획표 작성" />
-              </Link>
-            </Login>
-            <Menu onClick={toggleMenu}>|||</Menu>
-          </Column>
-        </Row>
-      </Header>
-    );
+// const visitorOrUser = writePlanMutationData => {
+//   console.log(writePlanMutationData);
+
+//   return (
+//     <VisitorOrUserToast>
+//       <Button value="익명작성" onClick={writePlanMutationData} />
+//       <Button value="회원가입작성" />
+//     </VisitorOrUserToast>
+//   );
+// };
+// const visitorOrUserCheck = () => {
+//   toast(visitorOrUser, { autoClose: false });
+// };
+
+class HeaderPresenter extends React.Component<any, IProps> {
+  public render() {
+    switch (this.props.headerTheme) {
+      case 'main':
+        return (
+          <Header>
+            <Row>
+              <Column>
+                <Link to={'/home'}>
+                  <Brand>:):</Brand>
+                </Link>
+              </Column>
+              <Column>
+                <Login>
+                  <Link to="/write-plan">
+                    <Button value="새 계획표 작성" />
+                  </Link>
+                </Login>
+                <Menu onClick={this.props.toggleMenu}>|||</Menu>
+              </Column>
+            </Row>
+          </Header>
+        );
+
+      case 'write':
+        return (
+          <Header style={{ backgroundColor: 'rgb(52,58,64)', color: 'white' }}>
+            <Row>
+              <Column>
+                <BackArrow backTo="/" />{' '}
+                <Input
+                  placeholder="제목^_^*"
+                  onChange={this.onTitleChange}
+                  name={'title'}
+                />
+              </Column>
+              <Column>
+                <Login>
+                  <Mutation
+                    mutation={ADD_PLAN}
+                    variables={this.props.addPlanVeriable}
+                    onCompleted={data => {
+                      console.log('data');
+                      console.log(data);
+
+                      if (data.ok) {
+                        toast.success('등록되었습니다.');
+                      }
+                    }}>
+                    {(addPlanFn, { data }) => {
+                      console.log('mutation 실행됨');
+
+                      return <Button value="익명작성" onClick={addPlanFn} />;
+                    }}
+                  </Mutation>
+
+                  <Input
+                    placeholder="  닉네임"
+                    onChange={this.onWriterChange}
+                    name={'writer'}
+                  />
+                </Login>
+              </Column>
+            </Row>
+          </Header>
+        );
+
+      case 'check':
+        return (
+          <Header style={{ backgroundColor: 'rgb(52,58,64)', color: 'white' }}>
+            <Row>
+              <Column>
+                <BackArrow backTo="/" /> <Input placeholder="제목^_^*" />
+              </Column>
+              <Column>
+                <Login>
+                  <Button value="익명작성" />
+                  <Button value="회원작성" />
+                </Login>
+              </Column>
+            </Row>
+          </Header>
+        );
+      default:
+        return <Error>ERROR</Error>;
+    }
   }
 
-  return (
-    <Header style={{ backgroundColor: 'rgb(52,58,64)', color: 'white' }}>
-      <Row>
-        <Column>
-          <BackArrow backTo="/" />{' '}
-          <Input placeholder="제목을 입력 해 주세요." />
-        </Column>
-        <Column>
-          <Login>
-            <Button value="이번주 드는 생각" />
-            <Button value="작성하기" />
-          </Login>
-        </Column>
-      </Row>
-    </Header>
-  );
-};
+  public onTitleChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = async event => {
+    const {
+      target: { name, value },
+    } = event;
+    await this.setState({
+      [name]: value,
+    } as any);
+    console.log('oninputstate');
+
+    console.log('this.props.addPlanVeriable.title');
+    console.log(this.props.addPlanVeriable.title);
+    this.props.addPlanVeriable.title = this.state.title;
+    console.log('this.state');
+    console.log(this.state);
+  };
+
+  public onWriterChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = async event => {
+    const {
+      target: { name, value },
+    } = event;
+    await this.setState({
+      [name]: value,
+    } as any);
+    console.log('oninputstate');
+
+    console.log('this.props.addPlanVeriable.title');
+    console.log(this.props.addPlanVeriable.title);
+    this.props.addPlanVeriable.writer = this.state.writer;
+    console.log('this.state');
+    console.log(this.state);
+  };
+}
+
 export default HeaderPresenter;

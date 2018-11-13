@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const Avatar = styled.div`
+// tslint:disable
+var Avatar = styled.div`
   position: absolute;
   display: grid;
   justify-self: flex-end;
-  top: -35px;
-  right: 20px;
   z-index: 1;
   width: 4.5rem;
   height: 4.5rem;
@@ -24,13 +22,16 @@ const Avatar = styled.div`
     border-radius: 50%;
   }
 `;
-
-const AvatarPresenter = ({}) => (
-  <>
-    <Avatar>
-      <img src="https://phinf.pstatic.net/contact/20170625_262/1498335240983EncQ4_JPEG/1.jpg?type=f56_56" />
-    </Avatar>
-  </>
-);
+class AvatarPresenter extends React.Component<any | undefined, any> {
+  render() {
+    return (
+      <>
+        <Avatar style={this.props.style}>
+          <img src={this.props.avatar} />
+        </Avatar>
+      </>
+    );
+  }
+}
 
 export default AvatarPresenter;

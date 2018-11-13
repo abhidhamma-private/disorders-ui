@@ -1,2 +1,2 @@
-import Card from './CardPresenter';
-export default Card;
+import CardComponent from './CardComponent';
+export default CardComponent;

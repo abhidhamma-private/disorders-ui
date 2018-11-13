@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Grid = styled.main`
   display: grid;
-  grid-template-areas: '. agenda article info .';
+  grid-template-areas: '. agenda Plan info .';
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
   padding-top: 50px;
   grid-gap: 5px;
@@ -13,7 +13,7 @@ const Grid = styled.main`
   @media (max-width: 850px) {
     display: grid;
     grid-template-areas:
-      'article'
+      'Plan'
       'agenda'
       'info';
     grid-template-columns: 1fr;

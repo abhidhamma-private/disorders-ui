@@ -1,2 +1,2 @@
-import LoginPresenter from './LoginPresenter';
-export default LoginPresenter;
+import Login from './LoginPresenter';
+export default Login;

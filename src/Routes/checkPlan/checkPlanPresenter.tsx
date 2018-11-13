@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CommonContainer from '../../Components/Common';
-import Grid from '../../Components/Grid';
 
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
@@ -13,23 +12,50 @@ const localizer = BigCalendar.momentLocalizer(moment);
 const DnDCalendar = withDragAndDrop(BigCalendar);
 
 const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  background: white;
+  display: grid;
+  grid-template-columns: 5fr 1fr 4fr;
+  position: fixed;
+  margin-top: 10px;
+`;
+const CheckBoxList = styled.div`
+  display: grid;
+  grid-template-rows: 41.4px repeat(25, 50px);
+  align-items: center;
+  justify-items: center;
+  height: 1245.5px;
+  background-color: rgb(234, 246, 256);
+  > input {
+    z-index: 1;
+  }
+`;
+
+const TextBoxList = styled.div`
+  display: grid;
+  grid-template-rows: 41.4px repeat(25, 50px);
+  align-items: center;
+  justify-items: center;
+  height: 1245.5px;
+  background-color: rgb(234, 246, 256);
+  > textarea {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    resize: none;
+  }
 `;
 
 class CheckPlanPresenter extends React.Component<{}, any> {
   public state = {
     events: [
-      {
-        start: new Date(),
-        end: new Date(
-          moment()
-            .add(1, 'days')
-            .toDate()
-        ),
-        title: 'Some title',
-      },
+      // {
+      //   start: new Date(),
+      //   end: new Date(
+      //     moment()
+      //       .add(1, 'days')
+      //       .toDate()
+      //   ),
+      //   title: 'Some title',
+      // },
     ],
   };
 
@@ -46,11 +72,10 @@ class CheckPlanPresenter extends React.Component<{}, any> {
   };
 
   public render() {
-    const headerTheme = false;
+    const headerTheme = 'check';
     return (
       <>
         <CommonContainer headerTheme={headerTheme} />
-        <Grid />
         <Container>
           <DnDCalendar
             selectable={true}
@@ -61,9 +86,67 @@ class CheckPlanPresenter extends React.Component<{}, any> {
             events={this.state.events}
             onEventDrop={this.onEventDrop}
             onEventResize={this.onEventResize}
-            resizable="true"
-            style={{ height: '100vh' }}
+            style={{
+              height: '1245.5px',
+              width: '50vw',
+              background: 'white',
+            }}
           />
+
+          <CheckBoxList>
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+            <input type="checkbox" />
+          </CheckBoxList>
+          <TextBoxList>
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+            <textarea />
+          </TextBoxList>
         </Container>
       </>
     );

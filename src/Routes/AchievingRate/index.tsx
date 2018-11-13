@@ -1,2 +1,2 @@
-import AchievingRatePresenter from './AchievingRatePresenter';
-export default AchievingRatePresenter;
+// import AchievingRatePresenter from './AchievingRatePresenter';
+// export default AchievingRatePresenter;

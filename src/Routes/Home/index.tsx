@@ -1,2 +1,2 @@
-import HomePresenter from './HomePresenter';
-export default HomePresenter;
+import HomeRoute from './HomePresenter';
+export default HomeRoute;

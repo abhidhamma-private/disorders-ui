@@ -13,7 +13,7 @@ interface IProps {
   backTo: string;
   className?: string;
 }
-const BackArrow: React.SFC<IProps> = ({ backTo, className }) => (
+const BackArrowComponent: React.SFC<IProps> = ({ backTo, className }) => (
   <Container className={className}>
     <Link to={backTo}>
       <Arrow
@@ -27,4 +27,4 @@ const BackArrow: React.SFC<IProps> = ({ backTo, className }) => (
     </Link>
   </Container>
 );
-export default BackArrow;
+export default BackArrowComponent;

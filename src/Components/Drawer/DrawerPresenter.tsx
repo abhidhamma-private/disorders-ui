@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Drawer = styled.div`
   display: grid;
@@ -30,23 +31,28 @@ const Row = styled.div`
   display: grid;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.6);
+  place-content: center center;
 `;
 
 const Column = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  font-weight: 900;
+  color: white;
 `;
 
-const DrawerPresenter = () => (
+const DrawerComponent = () => (
   <Drawer>
     <Row>
       <Column />
     </Row>
     <Row>
-      <Column />
+      <Link to="/check-plan">
+        <Column>결과 기록하기</Column>
+      </Link>
       <Column />
     </Row>
   </Drawer>
 );
-export default DrawerPresenter;
+export default DrawerComponent;

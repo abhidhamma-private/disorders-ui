@@ -12,7 +12,7 @@ injectGlobal`
       box-sizing: border-box;
   }
   body{
-      
+      line-height:1.5rem;
     background-image: url(http://s3.amazonaws.com/lyah/bg.png);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

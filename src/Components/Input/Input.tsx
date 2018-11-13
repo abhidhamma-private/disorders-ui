@@ -5,7 +5,7 @@ const Container = styled.input`
   color: white;
   border: none;
   font-size: 20px;
-  width: 200%;
+  width: 100%;
   height: 100%;
   font-weight: 500;
   line-height: 50px;
@@ -39,14 +39,16 @@ const Input: React.SFC<IProps> = ({
   value,
   name = '',
   onChange,
-}) => (
-  <Container
-    name={name}
-    type={type}
-    required={required}
-    value={value}
-    placeholder={placeholder}
-    onChange={onChange}
-  />
-);
+}) => {
+  return (
+    <Container
+      name={name}
+      type={type}
+      required={required}
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+    />
+  );
+};
 export default Input;

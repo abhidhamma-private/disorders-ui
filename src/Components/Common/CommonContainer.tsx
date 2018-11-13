@@ -2,7 +2,8 @@ import React from 'react';
 import CommonPresenter from './CommonPresenter';
 
 interface IProps {
-  headerTheme: boolean;
+  headerTheme: string;
+  addPlanVeriable?: any;
 }
 
 class CommonContainer extends React.Component<IProps> {
@@ -13,9 +14,12 @@ class CommonContainer extends React.Component<IProps> {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
   public render() {
+    console.log(this.props.addPlanVeriable);
+
     const { isMenuOpen } = this.state;
     return (
       <CommonPresenter
+        addPlanVeriable={this.props.addPlanVeriable}
         isMenuOpen={isMenuOpen}
         toggleMenu={this.toggleMenu}
         headerTheme={this.props.headerTheme}

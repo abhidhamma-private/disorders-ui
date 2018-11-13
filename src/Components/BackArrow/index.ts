@@ -1,2 +1,2 @@
-import BackArrow from './BackArrow';
-export default BackArrow;
+import BackArrowComponent from './BackArrowComponent';
+export default BackArrowComponent;
