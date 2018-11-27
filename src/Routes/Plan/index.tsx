@@ -1,2 +1,2 @@
-import PlanRoute from './PlanPresenter';
+import PlanRoute from './PlanContainer';
 export default PlanRoute;

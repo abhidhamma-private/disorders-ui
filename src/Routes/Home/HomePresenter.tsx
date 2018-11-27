@@ -34,9 +34,16 @@ const Grid = styled.main`
 class HomePresenter extends React.Component<any> {
   public render() {
     const headerTheme = 'main';
+    console.log('홈');
+    console.log(this.props);
     return (
       <>
-        <CommonContainer headerTheme={headerTheme} />
+        <CommonContainer
+          headerTheme={headerTheme}
+          match={this.props.match}
+          history={this.props.history}
+          location={this.props.location}
+        />
         <Grid>
           <PlanListContainer />
           <Agenda />

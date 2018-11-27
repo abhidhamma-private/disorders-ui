@@ -12,7 +12,6 @@ class PlanListContainer extends React.Component {
             return <div>loading</div>;
           }
           console.log('리스트컨테이너');
-          console.log(data.GetPlans.plan);
           return <PlanListPresenter plan={data.GetPlans.plan} />;
         }}
       </Query>

@@ -1,12 +1,12 @@
 import React from 'react';
 import CommonPresenter from './CommonPresenter';
 
-interface IProps {
-  headerTheme: string;
-  addPlanVeriable?: any;
-}
+// interface IProps extends RouteComponentProps<any> {
+//   headerTheme: string;
+//   addPlanVeriable?: any;
+// }
 
-class CommonContainer extends React.Component<IProps> {
+class CommonContainer extends React.Component<any> {
   public state = {
     isMenuOpen: false,
   };
@@ -15,7 +15,8 @@ class CommonContainer extends React.Component<IProps> {
   };
   public render() {
     console.log(this.props.addPlanVeriable);
-
+    console.log('커먼컨테이너');
+    console.log(this.props);
     const { isMenuOpen } = this.state;
     return (
       <CommonPresenter
@@ -23,6 +24,9 @@ class CommonContainer extends React.Component<IProps> {
         isMenuOpen={isMenuOpen}
         toggleMenu={this.toggleMenu}
         headerTheme={this.props.headerTheme}
+        match={this.props.match}
+        history={this.props.history}
+        location={this.props.location}
       />
     );
   }

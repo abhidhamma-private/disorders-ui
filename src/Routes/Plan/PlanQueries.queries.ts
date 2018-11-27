@@ -6,9 +6,7 @@ export const GET_PLAN = gql`
       ok
       error
       plan {
-        writer
         title
-        avatar
         content
         text
         createdAt
@@ -18,6 +16,10 @@ export const GET_PLAN = gql`
           startTime
           endTime
           allDay
+        }
+        user {
+          nickName
+          avatar
         }
       }
     }

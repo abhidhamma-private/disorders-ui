@@ -8,11 +8,13 @@ export const GET_PLANS = gql`
       plan {
         planId
         thumbnail
-        writer
         title
-        avatar
         content
         createdAt
+        user {
+          nickName
+          avatar
+        }
       }
     }
   }

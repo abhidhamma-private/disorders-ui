@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Mutation } from 'react-apollo';
 import { ADD_PLAN } from 'src/Routes/writePlan/writePlanQueries';
+import SignUpmodalPresenter from '../Modal/SignUpmodalPresenter';
+
 // import { toast } from 'react-toastify';
 
 const Header = styled.header`
@@ -95,7 +97,10 @@ interface IProps {
   headerTheme: string;
   addPlanVeriable?: any;
   title: any;
-  writer: any;
+  user: {
+    nickName: any;
+    userId: any;
+  };
 }
 
 // const visitorOrUser = writePlanMutationData => {
@@ -112,8 +117,10 @@ interface IProps {
 //   toast(visitorOrUser, { autoClose: false });
 // };
 
-class HeaderPresenter extends React.Component<any, IProps> {
+class HeaderPresenter extends React.Component<any, IProps, any> {
   public render() {
+    console.log('헤더');
+    console.log(this.props);
     switch (this.props.headerTheme) {
       case 'main':
         return (
@@ -126,9 +133,17 @@ class HeaderPresenter extends React.Component<any, IProps> {
               </Column>
               <Column>
                 <Login>
-                  <Link to="/write-plan">
+                  {/* <Link to="/write-plan">
                     <Button value="새 계획표 작성" />
-                  </Link>
+                  </Link> */}
+
+                  {
+                    <SignUpmodalPresenter
+                      match={this.props.match}
+                      history={this.props.history}
+                      location={this.props.location}
+                    />
+                  }
                 </Login>
                 <Menu onClick={this.props.toggleMenu}>|||</Menu>
               </Column>
@@ -154,25 +169,22 @@ class HeaderPresenter extends React.Component<any, IProps> {
                     mutation={ADD_PLAN}
                     variables={this.props.addPlanVeriable}
                     onCompleted={data => {
-                      console.log('data');
+                      console.log('completed data');
                       console.log(data);
 
-                      if (data.ok) {
-                        toast.success('등록되었습니다.');
-                      }
+                      toast.success('작성완료! 리스트로 이동합니다.');
+                      const location = {
+                        pathname: '/',
+                      };
+                      setTimeout(() => {
+                        return this.props.history.push(location);
+                      }, 2000);
                     }}>
                     {(addPlanFn, { data }) => {
                       console.log('mutation 실행됨');
-
-                      return <Button value="익명작성" onClick={addPlanFn} />;
+                      return <Button value="작성" onClick={addPlanFn} />;
                     }}
                   </Mutation>
-
-                  <Input
-                    placeholder="  닉네임"
-                    onChange={this.onWriterChange}
-                    name={'writer'}
-                  />
                 </Login>
               </Column>
             </Row>
@@ -188,8 +200,7 @@ class HeaderPresenter extends React.Component<any, IProps> {
               </Column>
               <Column>
                 <Login>
-                  <Button value="익명작성" />
-                  <Button value="회원작성" />
+                  <Button value="작성" />
                 </Login>
               </Column>
             </Row>
@@ -218,23 +229,23 @@ class HeaderPresenter extends React.Component<any, IProps> {
     console.log(this.state);
   };
 
-  public onWriterChange: React.ChangeEventHandler<
-    HTMLInputElement
-  > = async event => {
-    const {
-      target: { name, value },
-    } = event;
-    await this.setState({
-      [name]: value,
-    } as any);
-    console.log('oninputstate');
+  // public onWriterChange: React.ChangeEventHandler<
+  //   HTMLInputElement
+  // > = async event => {
+  //   const {
+  //     target: { name, value },
+  //   } = event;
+  //   await this.setState({
+  //     [name]: value,
+  //   } as any);
+  //   console.log('oninputstate');
 
-    console.log('this.props.addPlanVeriable.title');
-    console.log(this.props.addPlanVeriable.title);
-    this.props.addPlanVeriable.writer = this.state.writer;
-    console.log('this.state');
-    console.log(this.state);
-  };
+  //   console.log('this.props.addPlanVeriable.title');
+  //   console.log(this.props.addPlanVeriable.title);
+  //   this.props.addPlanVeriable.writer = this.state.writer;
+  //   console.log('this.state');
+  //   console.log(this.state);
+  // };
 }
 
 export default HeaderPresenter;

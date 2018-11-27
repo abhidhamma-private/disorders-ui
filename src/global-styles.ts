@@ -4,6 +4,7 @@ import { injectGlobal } from './typed-components';
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
   ${reset};
+  
   * {  
   -ms-overflow-style: none; 
   &::-webkit-scrollbar { 

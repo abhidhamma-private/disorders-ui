@@ -1,2 +1,2 @@
-import PlanComponent from './PlanComponent';
-export default PlanComponent;
+// import PlanComponent from './PlanComponent';
+// export default PlanComponent;
